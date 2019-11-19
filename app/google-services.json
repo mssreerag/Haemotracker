@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "89658235266",
+    "firebase_url": "https://haemotracker.firebaseio.com",
+    "project_id": "haemotracker",
+    "storage_bucket": "haemotracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89658235266:android:7cd99887ff022b5b45d79b",
+        "android_client_info": {
+          "package_name": "com.example.haemotracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89658235266-5106edn189sf6n1jejkoisoo63p5k0r2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.haemotracker",
+            "certificate_hash": "0b69e122ad9a24bd98fa343ab8524866fc7e00bc"
+          }
+        },
+        {
+          "client_id": "89658235266-gvoj1l99ob9qiorjj5afao5pvae7fth0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACN_V8XgR3ggCjlyXI415Gnj3_-uc8_io"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89658235266-gvoj1l99ob9qiorjj5afao5pvae7fth0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
