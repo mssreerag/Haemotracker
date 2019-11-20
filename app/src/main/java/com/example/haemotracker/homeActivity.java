@@ -108,7 +108,7 @@ public class homeActivity extends AppCompatActivity {
         if (users != null) {
 
             //Name, email address, and profile photo Url
-            uName = users.getDisplayName().toString();
+            uName = users.getDisplayName();
             String userMail = users.getEmail();
             Uri photoUrl = users.getPhotoUrl();
 //            // Check if user's email is verified
@@ -165,7 +165,7 @@ public class homeActivity extends AppCompatActivity {
                 updateDatabase();
                 Log.wtf("tag","running update"+lat+" "+lon);
             }
-        },4000,60000);
+        },1000,6000);
 
 
 //        initRecyclerView();
@@ -179,7 +179,7 @@ public class homeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchNearest();
-                chosenUser.setText(chosenOne +" at a distance "+dist*1000);
+                chosenUser.setText(chosenOne +" at a distance "+chosenMin*1000);
             }
         });
 
@@ -219,27 +219,29 @@ public class homeActivity extends AppCompatActivity {
 
     private void searchNearest() {
 
+
             db.collection("users")
                 .whereEqualTo("logged_in", true)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        int i=0;
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
 
                                     double calclat = Double.parseDouble(document.getData().get("lat").toString());
                                     double calclon = Double.parseDouble(document.getData().get("lon").toString());
 
                                     dist=Math.sqrt(Math.pow(69.1*(calclat-lat),2.0)+Math.pow(69.1*(calclon-lon)*Math.cos(calclat/57.3),2.0));
-                                if(dist != 0.0){
-                                    if( dist < chosenMin || chosenMin==-1){
+                                if(dist!=0){
+                                    if( dist < chosenMin || i==0){
+                                        i=1;
                                         chosenMin=dist;
                                         chosenId=document.getId();
                                         chosenOne=document.getData().get("name").toString();
 
-                                        Log.wtf("tag", document.getId() + " => " + document.getData());
+                                        Log.wtf("tag", document.getId() + " Choosen  => " + document.getData());
 
                                     }
                                     else{
